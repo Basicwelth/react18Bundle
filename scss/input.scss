@@ -1,0 +1,32 @@
+$font-stack: Helvetica, sans-serif;
+$black: #333;
+$blue: blue;
+html {
+  font: 1vmin $font-stack;
+}
+body {
+  color: $black;
+}
+//div, h1, h2, h3, h4, h5, h6, p, iframe, canvas {
+//  display: flex;
+//}
+//span, a, abbr {
+//  display: inline-flex;
+//}
+@mixin autoprefixer-test {
+  user-select: none;
+}
+.autoprefixer-test {
+  @include autoprefixer-test;
+  color: $blue;
+}
+.blue {
+  color: $blue;
+}
+.black {
+  color: $black;
+}
+//.column{
+//  flex-direction: column;
+//}
+@import "componets/button";
