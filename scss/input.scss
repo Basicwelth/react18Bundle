@@ -7,12 +7,6 @@ html {
 body {
   color: $black;
 }
-//div, h1, h2, h3, h4, h5, h6, p, iframe, canvas {
-//  display: flex;
-//}
-//span, a, abbr {
-//  display: inline-flex;
-//}
 @mixin autoprefixer-test {
   user-select: none;
 }
@@ -26,7 +20,5 @@ body {
 .black {
   color: $black;
 }
-//.column{
-//  flex-direction: column;
-//}
 @import "componets/button";
+@import "~semantic-ui-css/semantic.css";

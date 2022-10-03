@@ -9,7 +9,7 @@ module.exports = {
 		}),
 	],
 	entry: {
-		branding: ["./src/index.js", "./src/output.css"],
+		branding: ["./src/index.js", "./scss/input.scss"],
 	},
 	output: {
 		path: path.join(__dirname, "../../dist/br"),
@@ -21,16 +21,45 @@ module.exports = {
 				test: /\.js$/i,
 				exclude: /node_modules/,
 				use: [
-					{loader: "babel-loader"},
+					{
+						loader: "babel-loader",
+						options: {
+							presets: [
+								"@babel/preset-env",
+								["@babel/preset-react", {"runtime": "automatic"}]
+							]
+						},
+					},
 				],
 			},
 			{
-				test: /\.css$/i,
+				test: /\.(scss|css)$/i,
 				exclude: /node_modules/,
 				use: [
-					{loader: MiniCssExtractPlugin.loader},
-					{loader: "css-loader"},
-					{loader: "postcss-loader"},
+					{
+						loader: MiniCssExtractPlugin.loader
+					},
+					{
+						loader: "css-loader",
+					},
+					{
+						loader: "sass-loader",
+						options: {
+							sassOptions: {
+								outputStyle: "compressed",
+							},
+						},
+					},
+					{
+						loader: "postcss-loader",
+						options: {
+							postcssOptions: {
+								plugins: [
+									require('autoprefixer')
+								],
+							},
+						},
+					},
 				],
 			},
 			{
@@ -47,13 +76,4 @@ module.exports = {
 			},
 		]
 	},
-	// optimization: {
-	//     minimize: true,
-	//     minimizer: [
-	//         new CssMinimizerPlugin({
-	//             minify: CssMinimizerPlugin.cleanCssMinify,
-	//             parallel: true,
-	//         }),
-	//     ],
-	// },
 };

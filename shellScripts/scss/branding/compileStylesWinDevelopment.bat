@@ -1,1 +1,1 @@
-sass scss/input.scss src/output.css --no-source-map --error-css
+sass ../../../scss/input.scss ../../../src/output.css --no-source-map --error-css

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import FormMain from "./FormMain";
+import FormMain from "./components/FormMain";
 
 function App () {
 	const [count, setCount] = useState(0);
